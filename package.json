@@ -1,7 +1,7 @@
 {
-  "name": "phosphor",
+  "name": "phosphor-playground",
   "version": "0.3.0",
-  "description": "The Phosphor UI library",
+  "description": "Phosphor UI Playground",
   "dependencies": {},
   "devDependencies": {
     "del": "^0.1.3",
@@ -22,7 +22,7 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/phosphorjs/phosphor.git"
+    "url": "https://github.com/phosphorjs/playground.git"
   },
   "keywords": [
     "ui",
@@ -31,7 +31,7 @@
   "author": "S. Chris Colbert <sccolbert@gmail.com>",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/phosphorjs/phosphor/issues"
+    "url": "https://github.com/phosphorjs/playground/issues"
   },
-  "homepage": "https://github.com/phosphorjs/phosphor"
+  "homepage": "https://github.com/phosphorjs/playground"
 }

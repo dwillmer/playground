@@ -34,7 +34,7 @@
     "tsd.json"
   ],
   "dependencies": {
-      "phosphor": "^0.3.0",
+      "phosphor": "^0.3.0"
   },
   "devDependencies": {}
 }

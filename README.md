@@ -8,7 +8,7 @@ Package Install
 - [bower](http://bower.io/) `npm install -g bower`
 
 ```bash
-bower install playground
+bower install phosphor-playground
 ```
 
 
