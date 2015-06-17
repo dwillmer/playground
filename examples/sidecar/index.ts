@@ -7,6 +7,8 @@
 |----------------------------------------------------------------------------*/
 module example {
 
+ //var katex = require("katex");
+ //var marked = require("marked");
 
  import Widget = phosphor.widgets.Widget;
 
@@ -22,7 +24,7 @@ module example {
              var msg = JSON.parse(event.data);
              // Get display data if available
              if ("content" in msg && "data" in msg.content) {
-                 self.rich_display(msg.content.data);
+                 this.rich_display(msg.content.data);
              }
          };
      }
@@ -33,14 +35,14 @@ module example {
      }
 
      rich_display(data: any) {
-         var html = null;
+         var html: string = null;
 
          if ("text/html" in data) {
              html = data["text/html"];
          } else if ("text/markdown" in data) {
-             html = marked(data['text/markdown']);
+             //html = marked(data['text/markdown']);
          } else if ("text/latex" in data) {
-             html = katex.renderToString(data["text/latex"]);
+             //html = katex.renderToString(data["text/latex"]);
          } else if ("image/svg+xml" in data) {
              html = "<img src='data:image/svg+xml;base64," + data["image/svg+xml"] + "'/>";
          } else if ("image/png" in data) {
