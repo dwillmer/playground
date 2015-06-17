@@ -6,7 +6,7 @@ class SidecarPageHandler(tornado.web.RequestHandler):
 
     def get(self):
         return self.render("index.html", static=self.static_url,
-                           ws_url_path="/websocket")
+                           ws_url_path="/sidecar-ws")
 
 
 def main(argv):
@@ -22,7 +22,7 @@ def main(argv):
          {'path': 'build'}),
         (r"/node_modules/(.*)", tornado.web.StaticFileHandler,
          {'path': '../node_modules'}),
-        #(r"/", TerminalPageHandler),
+        (r"/", SidecarPageHandler),
     ]
     app = tornado.web.Application(handlers, static_path='build',
                                   template_path='.')
