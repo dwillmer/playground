@@ -6,13 +6,24 @@ import webbrowser
 
 import tornado.websocket
 import tornado.web
+import ptyprocess
 
 from IPython.kernel.connect import find_connection_file
 
 import zmq
 from zmq.eventloop import ioloop
 from zmq.eventloop.zmqstream import ZMQStream
+
+from terminado import TermSocket, SingleTermManager
+
 ioloop.install()
+
+
+class TerminalPageHandler(tornado.web.RequestHandler):
+
+    def get(self):
+        return self.render("index.html", static=self.static_url,
+                           ws_url_path="/twebsocket")
 
 
 class KernelSocket(tornado.websocket.WebSocketHandler):
@@ -21,10 +32,7 @@ class KernelSocket(tornado.websocket.WebSocketHandler):
 
     def initialize(self):
         self._log = logging.getLogger(__name__)
-        #self._log.setLevel(logging.INFO)
-        with open(find_connection_file()) as fid:
-            self.info = json.load(fid)
-        self._log.info(self.info)
+        self._log.setLevel(logging.INFO)
 
     def open(self, url_component=None):
         """Websocket connection opened.
@@ -33,7 +41,10 @@ class KernelSocket(tornado.websocket.WebSocketHandler):
         client.
         """
         self._log.info("KernelSocket.open: %s", url_component)
+        with open(find_connection_file()) as fid:
+            self.info = json.load(fid)
 
+        self._log.info(self.info)
         ctx = zmq.Context()
         self.sock = ctx.socket(zmq.SUB)
         self.sock.connect('tcp://%s:%s' % (self.info['ip'],
@@ -58,13 +69,23 @@ class SidecarPageHandler(tornado.web.RequestHandler):
 
     def get(self):
         return self.render("index.html", static=self.static_url,
-                           ws_url_path="/websocket")
+                           ws_url_path="stwebsocket")
 
 
 def main(argv):
+    kernel = ptyprocess.PtyProcessUnicode.spawn(["ipython", "kernel"])
+
+    while 1:
+        line = kernel.readline().strip()
+        if 'existing' in line:
+            break
+
+    term_manager = SingleTermManager(shell_command=["ipython", "console",
+                                                    '='.join(line.split())])
 
     handlers = [
-        (r"/websocket", KernelSocket),
+        (r"/twebsocket", TermSocket, {'term_manager': term_manager}),
+        (r"/swebsocket", KernelSocket),
         (r"/bower_components/(.*)", tornado.web.StaticFileHandler,
          {'path': '../../bower_components'}),
         (r"/dist/(.*)", tornado.web.StaticFileHandler,
