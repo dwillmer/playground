@@ -26,10 +26,7 @@ module example {
 
          this._ws.onmessage = (event: MessageEvent) => {
              var msg = JSON.parse(event.data);
-             // Get display data if available
-             if ("content" in msg && "data" in msg.content) {
-                 this.rich_display(msg.content.data);
-             }
+             this.rich_display(msg);
          };
      }
 
@@ -38,8 +35,9 @@ module example {
          super.dispose();
      }
 
-     rich_display(data: any) {
+     rich_display(data: any): void {
          var html: string = null;
+         console.log(data);
 
          if ("text/html" in data) {
              html = data["text/html"];
@@ -71,7 +69,7 @@ module example {
 function main(): void {
 
     var protocol = (window.location.protocol.indexOf("https") === 0) ? "wss" : "ws";
-    var ws_url = protocol + "://" + window.location.host + "/sidecar-ws";
+    var ws_url = protocol + "://" + window.location.host + "/websocket";
 
     var sidecar = new SidecarWidget(ws_url);
 
