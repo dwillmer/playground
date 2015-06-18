@@ -24,13 +24,6 @@ from terminado import TermSocket, SingleTermManager
 ioloop.install()
 
 
-class TerminalPageHandler(tornado.web.RequestHandler):
-
-    def get(self):
-        return self.render("index.html", static=self.static_url,
-                           ws_url_path="/twebsocket")
-
-
 class KernelSocket(tornado.websocket.WebSocketHandler):
 
     """Handler for a kernel iopub websocket"""
@@ -70,11 +63,10 @@ class KernelSocket(tornado.websocket.WebSocketHandler):
                 self.write_message(msg['data'])
 
 
-class SidecarPageHandler(tornado.web.RequestHandler):
+class PageHandler(tornado.web.RequestHandler):
 
     def get(self):
-        return self.render("index.html", static=self.static_url,
-                           ws_url_path="stwebsocket")
+        return self.render("index.html", static=self.static_url)
 
 
 def main(argv):
@@ -99,7 +91,7 @@ def main(argv):
          {'path': 'build'}),
         (r"/node_modules/(.*)", tornado.web.StaticFileHandler,
          {'path': '../../node_modules'}),
-        (r"/", SidecarPageHandler),
+        (r"/", PageHandler),
     ]
     app = tornado.web.Application(handlers, static_path='build',
                                   template_path='.')
