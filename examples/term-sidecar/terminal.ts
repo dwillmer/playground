@@ -29,8 +29,31 @@ interface ITerminalConfig {
   useStyle?: boolean;
 }
 
+  /**
+   * Typing for a term.js terminal object.
+   */
+  declare class Terminal {
+    constructor(config: ITerminalConfig);
 
-declare function Terminal(config: ITerminalConfig): void;
+    options: ITerminalConfig;
+
+    element: HTMLElement;
+
+    colors: number[];
+
+    rows: number;
+
+    cols: number;
+
+    open(el: HTMLElement): void;
+
+    write(msg: string): void;
+
+    resize(width: number, height: number): void;
+
+    destroy(): void;
+
+  }
 
 
 /**
@@ -47,7 +70,7 @@ class TermWidget extends Widget {
     this._ws = new WebSocket(ws_url);
     this._config = config || {useStyle: true};
 
-    this._term = Terminal(this._config);
+    this._term = new Terminal(this._config);
     this._term.open(this.node);
 
     this._term.on('data', (data: string) => {
@@ -137,8 +160,8 @@ class TermWidget extends Widget {
       this._term_col_width = this._dummy_term.offsetWidth / 80;
     }
 
-    var rows = Math.max(2, Math.floor(height / this._term_row_height) - 1);
-    var cols = Math.max(3, Math.floor(width / this._term_col_width) - 1);
+    var rows = Math.max(2, Math.floor(height / this._term_row_height) - 2);
+    var cols = Math.max(3, Math.floor(width / this._term_col_width) - 2);
 
     rows = this._config.rows || rows;
     cols = this._config.cols || cols;

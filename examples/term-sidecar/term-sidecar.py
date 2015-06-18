@@ -105,6 +105,8 @@ def main(argv):
     except KeyboardInterrupt:
         print(" Shutting down on SIGINT")
     finally:
+        kernel.close()
+        term_manager.shutdown()
         loop.close()
 
 if __name__ == '__main__':
