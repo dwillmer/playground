@@ -1,6 +1,6 @@
 /*-----------------------------------------------------------------------------
-| Copyright (c) 2014-2015, S. Chris Colbert
-|
+| Copyright (c) 2015 Phosphor Contributors
+| Copyright (c) 2015 Kyle Kelley
 | Distributed under the terms of the BSD 3-Clause License.
 |
 | The full license is in the file LICENSE, distributed with this software.
@@ -38,7 +38,12 @@ module example {
 
      rich_display(data: any): void {
          var html: string = null;
-         console.log(data);
+
+         // JavaScript is our most rich display type
+         if ("application/javascript" in data) {
+             eval(data["application/javascript"]);
+             return;
+         }
 
          if ("text/html" in data) {
              html = data["text/html"];
