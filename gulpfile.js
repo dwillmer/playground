@@ -33,7 +33,8 @@ var testsTypings = buildTypings.concat([
 
 
 var tsSources = [
-
+  'terminal',
+  'sidecar'
 ].map(function(name) { return './src/' + name + '.ts'; });
 
 
