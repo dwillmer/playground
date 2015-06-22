@@ -9,6 +9,7 @@ module phosphor.sidecar {
 
 import IMessage = core.IMessage;
 import Widget = widgets.Widget;
+import Size = utility.Size;
 
 
 declare function marked(data: string): string;
@@ -67,6 +68,10 @@ class SidecarWidget extends Widget {
     }
 
     this.node.innerHTML = html;
+  }
+
+  sizeHint(): Size {
+    return new Size(640, 480);
   }
 
   private _ws: WebSocket;

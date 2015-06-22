@@ -11,6 +11,8 @@ import IMessage = core.IMessage;
 
 import ResizeMessage = widgets.ResizeMessage;
 import Widget = widgets.Widget;
+import Size = utility.Size;
+import SizePolicy = widgets.SizePolicy;
 
 /**
  * A terminal configuration.
@@ -66,7 +68,7 @@ class TermWidget extends Widget {
   */
   constructor(ws_url: string, config?: ITerminalConfig) {
     super();
-    this.addClass('TermWidget');
+    this.addClass('p-TermWidget');
     this._ws = new WebSocket(ws_url);
     this._config = config || {useStyle: true};
 
@@ -104,6 +106,8 @@ class TermWidget extends Widget {
                      "01234567890123456789";
     this._dummy_term.appendChild(pre);
     this._term.element.appendChild(this._dummy_term);
+
+    this.verticalSizePolicy = SizePolicy.Minimum;
 
   }
 
@@ -174,6 +178,10 @@ class TermWidget extends Widget {
    */
   protected onResize(msg: ResizeMessage): void {
     this.resize_term(msg.width, msg.height);
+  }
+
+  sizeHint(): Size {
+    return new Size(512, 256);
   }
 
   private _ws: WebSocket;

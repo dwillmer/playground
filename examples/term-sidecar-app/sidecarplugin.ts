@@ -22,7 +22,7 @@ function initialize(container: IContainer): void {
   var shell = container.resolve(IShellView);
   var protocol = (window.location.protocol.indexOf("https") === 0) ? "wss" : "ws";
   var ws_url = protocol + "://" + window.location.host + "/swebsocket";
-  shell.addWidget('center', new SidecarWidget(ws_url));
+  shell.addWidget('bottom', new SidecarWidget(ws_url));
   console.log('sidecar initialized');
 }
 

@@ -23,7 +23,7 @@ function initialize(container: IContainer): void {
   var protocol = (window.location.protocol.indexOf("https") === 0) ? "wss" : "ws";
   var ws_url = protocol + "://" + window.location.host + "/twebsocket";
 
-  shell.addWidget('top', new TermWidget(ws_url));
+  shell.addWidget('center', new TermWidget(ws_url));
   console.log('terminal loaded');
 }
 
