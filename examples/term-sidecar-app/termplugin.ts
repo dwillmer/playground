@@ -1,11 +1,11 @@
 /*-----------------------------------------------------------------------------
-| Copyright (c) 2015, Phosphor Developers.
+| Copyright (c) 2015, Phosphor Contributors
 |
 | Distributed under the terms of the BSD 3-Clause License.
 |
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
-module chat.termplugin {
+module example.termplugin {
 
 import IContainer = phosphor.di.IContainer;
 
@@ -26,4 +26,4 @@ function initialize(container: IContainer): void {
   shell.addWidget('top', new TermWidget(ws_url));
 }
 
-} // module chat.termplugin
+} // module example.termplugin
