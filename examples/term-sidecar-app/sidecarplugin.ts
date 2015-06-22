@@ -23,6 +23,7 @@ function initialize(container: IContainer): void {
   var protocol = (window.location.protocol.indexOf("https") === 0) ? "wss" : "ws";
   var ws_url = protocol + "://" + window.location.host + "/swebsocket";
   shell.addWidget('bottom', new SidecarWidget(ws_url));
+  console.log('sidecar initialized');
 }
 
 } // module example.sidecarplugin

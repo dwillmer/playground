@@ -24,6 +24,7 @@ function initialize(container: IContainer): void {
   var ws_url = protocol + "://" + window.location.host + "/twebsocket";
 
   shell.addWidget('top', new TermWidget(ws_url));
+  console.log('terminal loaded');
 }
 
 } // module example.termplugin
