@@ -5,9 +5,18 @@ sudo: false
 env:
   matrix:
     - GROUP=
+cache:
+  directories:
+    - $HOME/typings
 install:
+  - npm install -g bower
+  - npm install -g gulp
+  - npm install -g tsd@next
   - npm install
   - bower install
+  - cp -r $HOME/typings .
+  - tsd reinstall -so; true
+  - cp -r typings $HOME
 script:
   - gulp
   - gulp examples
