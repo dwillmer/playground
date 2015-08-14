@@ -2,6 +2,7 @@
   "name": "phosphor-playground",
   "version": "0.3.0",
   "description": "Phosphor UI Playground",
+  "main" : "lib/index.js",
   "dependencies": {},
   "devDependencies": {
     "del": "^0.1.3",
@@ -17,11 +18,19 @@
     "gulp-uglify": "^1.2.0",
     "mocha": "^2.2.5",
     "nib": "^1.1.0",
+    "rimraf" : "^2.4.2",
     "term.js": "^0.0.4",
     "katex": "^0.2.0",
-    "marked": "^0.3.3"
+    "marked": "^0.3.3",
+    "phosphor": "^0.4.0"
   },
-  "scripts": {},
+  "scripts": {
+    "clean" : "rimraf lib",
+    "build:src" : "tsc --project src",
+    "build:dts" : "node scripts/dtsbundle.js",
+    "build" : "npm run build:src && npm run build:dts",
+    "build:examples" : "npm run build && tsc --project examples"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/phosphorjs/playground.git"
