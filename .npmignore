@@ -7,5 +7,3 @@ typings
 bower_components
 dist
 npm-debug.log
-lib
-shelljs_*
