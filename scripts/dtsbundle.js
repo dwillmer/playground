@@ -6,6 +6,6 @@
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
 require('dts-bundle').bundle({
-  name: 'playground',
+  name: 'phosphor-playground',
   main: 'lib/index.d.ts',
 });
