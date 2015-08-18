@@ -1,3 +1,5 @@
-import SidecarWidget = phosphor.sidecar.SidecarWidget;
+/// <reference path="sidecar.ts" />
+/// <reference path="terminal.ts" />
+import SidecarWidget = sidecar.SidecarWidget;
 import Terminal = phosphor.terminal.TermWidget;
-export default {SidecarWidget, Terminal};
+export {SidecarWidget, Terminal};

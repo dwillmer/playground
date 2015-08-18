@@ -5,11 +5,11 @@
 |
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
-module phosphor.sidecar {
+module sidecar {
 
-import IMessage = core.IMessage;
-import Widget = widgets.Widget;
-import Size = utility.Size;
+import IMessage = phosphor.core.IMessage;
+import Widget = phosphor.widgets.Widget;
+import Size = phosphor.utility.Size;
 
 
 declare function marked(data: string): string;

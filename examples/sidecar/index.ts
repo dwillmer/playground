@@ -6,9 +6,16 @@
 |
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
-module example {
 
-    import SidecarWidget = phosphor.sidecar.SidecarWidget;
+// import playground = require('phosphor-playground');
+import {SidecarWidget, Terminal} from 'phosphor-playground';
+
+module example {
+	// import playground = require('../../dist/phosphor-playground');
+    // import SidecarWidget as Sidecar = require('phosphor-playground').default;
+    // import Sidecar = sidecar.SidecarWidget;
+    // import {SidecarWidget as Sidecar} from 'phosphor-playground';
+    // import playground = require('phosphor-playground');
 
 function main(): void {
 

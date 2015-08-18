@@ -15,8 +15,8 @@
     "../typings/es6-promise/es6-promise.d.ts",
     "../typings/expect.js/expect.js.d.ts",
     "../typings/mocha/mocha.d.ts",
+    "index.ts",
     "sidecar.ts",
-    "terminal.ts",
-    "index.ts"
+    "terminal.ts"
   ]
 }
