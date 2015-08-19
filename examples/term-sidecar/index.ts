@@ -5,11 +5,9 @@
 |
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
-module example {
 
  import BoxPanel = phosphor.widgets.BoxPanel;
- import SidecarWidget = phosphor.sidecar.SidecarWidget;
- import TermWidget = phosphor.terminal.TermWidget;
+ import * as playground from "../../lib/index";
 
 
 function main(): void {
@@ -19,8 +17,8 @@ function main(): void {
     var sc_ws_url = protocol + "://" + window.location.host + "/swebsocket";
     var t_ws_url = protocol + "://" + window.location.host + "/twebsocket";
 
-    var sidecar = new SidecarWidget(sc_ws_url);
-    var term = new TermWidget(t_ws_url);
+    var sidecar = new playground.SidecarWidget(sc_ws_url);
+    var term = new playground.TermWidget(t_ws_url);
 
     panel.addWidget(term, 1);
     panel.addWidget(sidecar, 2);
@@ -33,5 +31,3 @@ function main(): void {
 }
 
 window.onload = main;
-
-} // module example

@@ -7,11 +7,8 @@
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
 'use strict';
-
-//import {SidecarWidget, Terminal} from 'phosphor-playground';
 import * as playground from "../../lib/index";
 
-module example {
 
 function main(): void {
 
@@ -29,4 +26,3 @@ function main(): void {
 
 window.onload = main;
 
-} // module example

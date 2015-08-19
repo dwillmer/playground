@@ -7,10 +7,6 @@
 |----------------------------------------------------------------------------*/
 'use strict';
 
-// import SidecarWidget = sidecar.SidecarWidget;
-// import TermWidget = phosphor.terminal.TermWidget;
-// export {SidecarWidget, TermWidget};
-
 import {SidecarWidget} from "./sidecar";
 import {TermWidget} from "./terminal";
 export * from "./sidecar";
