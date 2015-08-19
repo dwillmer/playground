@@ -5,14 +5,13 @@
 |
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
-module phosphor.terminal {
 
-import IMessage = core.IMessage;
+import IMessage = phosphor.core.IMessage;
 
-import ResizeMessage = widgets.ResizeMessage;
-import Widget = widgets.Widget;
-import Size = utility.Size;
-import SizePolicy = widgets.SizePolicy;
+import ResizeMessage = phosphor.widgets.ResizeMessage;
+import Widget = phosphor.widgets.Widget;
+import Size = phosphor.utility.Size;
+import SizePolicy = phosphor.widgets.SizePolicy;
 
 /**
  * A terminal configuration.
@@ -192,4 +191,3 @@ class TermWidget extends Widget {
   private _config: ITerminalConfig;
 }
 
-} // module phosphor.terminal
