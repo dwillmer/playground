@@ -8,23 +8,17 @@
 |----------------------------------------------------------------------------*/
 'use strict';
 
-// import playground = require('phosphor-playground');
-import {SidecarWidget, Terminal} from 'phosphor-playground';
-
+//import {SidecarWidget, Terminal} from 'phosphor-playground';
+import * as playground from "../../lib/index";
 
 module example {
-	// import playground = require('../../dist/phosphor-playground');
-    // import SidecarWidget as Sidecar = require('phosphor-playground').default;
-    // import Sidecar = sidecar.SidecarWidget;
-    // import {SidecarWidget as Sidecar} from 'phosphor-playground';
-    // import playground = require('phosphor-playground');
 
 function main(): void {
 
     var protocol = (window.location.protocol.indexOf("https") === 0) ? "wss" : "ws";
     var ws_url = protocol + "://" + window.location.host + "/websocket";
 
-    var sidecar = new SidecarWidget(ws_url);
+    var sidecar = new playground.SidecarWidget(ws_url);
 
     sidecar.attach(document.getElementById('main'));
     sidecar.fit();

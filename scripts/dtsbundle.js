@@ -5,7 +5,10 @@
 |
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
-require('dts-bundle').bundle({
+require('dts-generator').generate({
   name: 'phosphor-playground',
-  main: 'lib/index.d.ts',
+  main: 'phosphor-playground/index',
+  baseDir: 'lib',
+  files: ['index.d.ts'],
+  out: 'lib/phosphor-playground.d.ts',
 });

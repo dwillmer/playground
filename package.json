@@ -10,9 +10,10 @@
   "devDependencies": {
     "del": "^0.1.3",
     "dive": "^0.4.0",
-    "dts-bundle": "^0.3.0",
+    "dts-generator": "^1.5.0",
     "event-stream": "^3.1.7",
     "expect.js": "^0.3.1",
+    "mkdirp": "^0.5.1",
     "mocha": "^2.2.5",
     "nib": "^1.1.0",
     "rimraf" : "^2.4.2",
@@ -30,7 +31,7 @@
     "build:dts" : "node scripts/dtsbundle.js",
     "build" : "npm run build:src && npm run build:dts",
     "build:css": "node scripts/buildcss.js",
-    "build:examples" : "npm run build && npm run build:css && tsc --project examples/codemirror && tsc --project examples/sidecar && tsc --project examples/term-sidecar && tsc --project examples/term-sidecar-app"
+    "build:examples" : "npm run build && npm run build:css && tsc --project examples/sidecar"
   },
   "repository": {
     "type": "git",
