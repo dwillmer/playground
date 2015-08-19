@@ -5,7 +5,6 @@
 |
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
-module example.sidecarplugin {
 
 import IContainer = phosphor.di.IContainer;
 
@@ -25,5 +24,3 @@ function initialize(container: IContainer): void {
   shell.addWidget('bottom', new SidecarWidget(ws_url));
   console.log('sidecar initialized');
 }
-
-} // module example.sidecarplugin

@@ -5,7 +5,6 @@
 |
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
-module example.termplugin {
 
 import IContainer = phosphor.di.IContainer;
 
@@ -27,4 +26,3 @@ function initialize(container: IContainer): void {
   console.log('terminal loaded');
 }
 
-} // module example.termplugin

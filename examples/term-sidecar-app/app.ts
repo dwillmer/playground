@@ -5,10 +5,10 @@
 |
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
-module example {
 
 import Bootstrapper = phosphor.shell.Bootstrapper;
-
+import * as termplugin from "./termplugin";
+import * as sidecarplugin from "./sidecarplugin";
 
 /**
  * A term-sidecar application built entirely from plugins.
@@ -25,5 +25,3 @@ class TermSidecarApplication extends Bootstrapper {
     ]);
   }
 }
-
-} // module example

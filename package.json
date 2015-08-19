@@ -31,7 +31,7 @@
     "build:dts" : "node scripts/dtsbundle.js",
     "build" : "npm run build:src && npm run build:dts",
     "build:css": "node scripts/buildcss.js",
-    "build:examples" : "npm run build && npm run build:css && tsc --project examples/sidecar"
+    "build:examples" : "npm run build && npm run build:css && tsc --project examples/codemirror &&tsc --project examples/sidecar && tsc --project examples/term-sidecar && tsc --project examples/term-sidecar-app"
   },
   "repository": {
     "type": "git",

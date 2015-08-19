@@ -5,7 +5,6 @@
 |
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
-module example {
 
 import IMessage = phosphor.core.IMessage;
 
@@ -61,4 +60,3 @@ function main(): void {
 
 window.onload = main;
 
-} // module example
