@@ -10,7 +10,7 @@
     "outDir": "./build"
   },
   "files": [
-    "../../dist/phosphor-playground.d.ts",
+    "../../lib/phosphor-playground.d.ts",
     "../../typings/phosphor/phosphor.d.ts",
     "../../typings/codemirror/codemirror.d.ts",
     "../../typings/es6-promise/es6-promise.d.ts",
