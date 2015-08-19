@@ -29,9 +29,9 @@
     "clean" : "rimraf lib && rimraf ./examples/**/build && rimraf ./shelljs_*",
     "build:src" : "tsc --project src",
     "build:dts" : "node scripts/dtsbundle.js",
-    "build" : "npm run build:src && npm run build:dts",
     "build:css": "node scripts/buildcss.js",
-    "build:examples" : "npm run build && npm run build:css && tsc --project examples/codemirror &&tsc --project examples/sidecar && tsc --project examples/term-sidecar && tsc --project examples/term-sidecar-app"
+    "build:examples" : "npm run build:css && tsc --project examples/codemirror &&tsc --project examples/sidecar && tsc --project examples/term-sidecar && tsc --project examples/term-sidecar-app",
+    "build" : "npm run build:src && npm run build:dts && npm run build:examples"
   },
   "repository": {
     "type": "git",

@@ -16,19 +16,10 @@ npm run build
 ```
 
 Build Clean
-------------
+-----------
 ```bash
 npm run clean
 npm run build
-```
-
-Build Examples
---------------
-
-Follow the source build instructions first.
-
-```bash
-npm run build:examples
 ```
 
 Navigate to `index.html` of the example of interest.
