@@ -21,6 +21,7 @@
     "katex": "^0.2.0",
     "marked": "^0.3.3",
     "phosphor": "^0.4.0",
+    "phosphor-terminal": "^0.3.0",
     "shelljs": "^0.5.3",
     "stylus": "^0.45.0",
     "typescript": "^1.5.3"

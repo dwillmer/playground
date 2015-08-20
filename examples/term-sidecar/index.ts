@@ -8,6 +8,7 @@
 
  import BoxPanel = phosphor.widgets.BoxPanel;
  import * as playground from "../../lib/index";
+ import {TerminalWidget} from 'phosphor-terminal';
 
 
 function main(): void {
@@ -18,7 +19,7 @@ function main(): void {
     var t_ws_url = protocol + "://" + window.location.host + "/twebsocket";
 
     var sidecar = new playground.SidecarWidget(sc_ws_url);
-    var term = new playground.TermWidget(t_ws_url);
+    var term = new TerminalWidget(t_ws_url);
 
     panel.addWidget(term, 1);
     panel.addWidget(sidecar, 2);
