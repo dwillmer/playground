@@ -6,16 +6,16 @@
 |
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
-module example {
+'use strict';
+import * as playground from "../../lib/index";
 
-    import SidecarWidget = phosphor.sidecar.SidecarWidget;
 
 function main(): void {
 
     var protocol = (window.location.protocol.indexOf("https") === 0) ? "wss" : "ws";
     var ws_url = protocol + "://" + window.location.host + "/websocket";
 
-    var sidecar = new SidecarWidget(ws_url);
+    var sidecar = new playground.SidecarWidget(ws_url);
 
     sidecar.attach(document.getElementById('main'));
     sidecar.fit();
@@ -26,4 +26,3 @@ function main(): void {
 
 window.onload = main;
 
-} // module example

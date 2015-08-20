@@ -5,8 +5,7 @@
 |
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
-module example {
-
+'use strict';
 import IMessage = phosphor.core.IMessage;
 
 import ResizeMessage = phosphor.widgets.ResizeMessage;
@@ -61,4 +60,3 @@ function main(): void {
 
 window.onload = main;
 
-} // module example

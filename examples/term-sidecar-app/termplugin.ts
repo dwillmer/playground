@@ -5,13 +5,12 @@
 |
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
-module example.termplugin {
 
 import IContainer = phosphor.di.IContainer;
 
 import IShellView = phosphor.shell.IShellView;
 
-import TermWidget = phosphor.terminal.TermWidget;
+import {TerminalWidget} from 'phosphor-terminal';
 
 
 /**
@@ -23,8 +22,7 @@ function initialize(container: IContainer): void {
   var protocol = (window.location.protocol.indexOf("https") === 0) ? "wss" : "ws";
   var ws_url = protocol + "://" + window.location.host + "/twebsocket";
 
-  shell.addWidget('center', new TermWidget(ws_url));
+  shell.addWidget('center', new TerminalWidget(ws_url));
   console.log('terminal loaded');
 }
 
-} // module example.termplugin
