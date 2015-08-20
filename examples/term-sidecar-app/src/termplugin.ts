@@ -10,17 +10,19 @@ import IContainer = phosphor.di.IContainer;
 
 import IShellView = phosphor.shell.IShellView;
 
-import * as playground from "../../lib/index";
+import { TerminalWidget } from 'phosphor-terminal';
 
 
 /**
- * Initialize the sidecar plugin.
+ * Initialize the term widget plugin.
  */
 export
 function initialize(container: IContainer): void {
   var shell = container.resolve(IShellView);
   var protocol = (window.location.protocol.indexOf("https") === 0) ? "wss" : "ws";
-  var ws_url = protocol + "://" + window.location.host + "/swebsocket";
-  shell.addWidget('bottom', new playground.SidecarWidget(ws_url));
-  console.log('sidecar initialized');
+  var ws_url = protocol + "://" + window.location.host + "/twebsocket";
+
+  shell.addWidget('center', new TerminalWidget(ws_url));
+  console.log('terminal loaded');
 }
+

@@ -12,7 +12,10 @@ import webbrowser
 import tornado.websocket
 import tornado.web
 
-from IPython.kernel.connect import find_connection_file
+try:
+    from jupyter_client import find_connection_file
+except ImportError:
+    from IPython.kernel.connect import find_connection_file
 
 import zmq
 from zmq.eventloop import ioloop
