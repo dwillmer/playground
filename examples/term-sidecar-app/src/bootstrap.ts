@@ -7,7 +7,9 @@
 |----------------------------------------------------------------------------*/
 
 import Bootstrapper = phosphor.shell.Bootstrapper;
+
 import * as termplugin from "./termplugin";
+
 import * as sidecarplugin from "./sidecarplugin";
 
 /**

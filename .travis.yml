@@ -2,13 +2,14 @@ language: node_js
 node_js:
   - '0.12'
 sudo: false
-env:
+env: 
   matrix:
     - GROUP=
-cache:
-  directories:
-    - $HOME/typings
-install:
-  - npm install
+  global:
+    - GH_REF: github.com/phosphorjs/playground.git
+    - secure: "hZQrxyjXX3kDt8eZmnAbIyIrB+BtfbRACBbZbLHso8wwYZvAt6Azgsq0mPQg08PCze9+0UySAYHfhM2BUzBoslQqroWVqeWKATZKZZ+13gOWWxt8x/k3DySLqMxAOubHNJlTl9S1VHeBDwpv9m+NnbtAgfb5rTroqr54TnYWomT2NedYU620rFuJx9/GvMvnPBfOPooEPbr7cZ5Y5Xn8BXz6pXsNU+npTV91m5SXs/pxPfnKj9KJL0eHusH4rJBQ5vGi3qCR4x0bqoRrDKSwmLSrzCRoQ0Vxd1oV8oL5KgqUzOuq7sat5h3NnQF+EGVXdZBQr3hRplGMoy7Jo6pu7RgCz4J5oS2b4LP4Z4j89U2C7jbBIzDpbnjSjqhrZKWGHbn//1Q0hOf4qp+UI3iqDsLJqJ1LvEjtr/3tj6CpKjZc/vKCZzN0Q5gTreBKwrxf5dXqAemh5bUKA85w3azyMkLLwvskliHnOvSoLBOsesyvz/HRGlJ7sobqb+k7le+jP+ekUsWx+nEuq2bbJgjHNYMeHeuMdtj9/hfamU4iEZw5+tKJ/JA2Yovv4GUzaJt6vLkVYCBRZ0LPJVUZxXIOuAO/Qt1s9yLBDtxW5WYyJKVl8QjyD4Yq8/EO2rf60vwJXdePGq+9qqd64DBx1nLSkpNbUeFUNXcGW06kJ1Qi5gg="
 script:
+  - npm run clean
   - npm run build
+after_success:
+  - npm run docs:publish

@@ -7,7 +7,7 @@
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
 'use strict';
-import * as playground from "../../lib/index";
+import * as playground from "../../../lib/index";
 
 
 function main(): void {

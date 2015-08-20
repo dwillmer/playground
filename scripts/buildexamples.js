@@ -8,15 +8,13 @@
 var dive = require('dive');
 require('shelljs/global');
 
-mkdir('-p', 'examples/codemirror/build');
-mkdir('-p', 'examples/sidecar/build');
-mkdir('-p', 'examples/term-sidecar/build');
-mkdir('-p', 'examples/term-sidecar-app/build');
-
 dive(
-  process.cwd()+'/examples',
-  {directories: true, recursive: false, files: false},
+  process.cwd() + '/examples',
+  { directories: true, recursive: false, files: false },
   function(err, dir) {
-    exec("stylus " +dir+ "/index.styl -o " +dir+ "/build")
+    mkdir('-p', dir + '/build');
+    exec("stylus " + dir + "/src/index.styl -o " + dir + "/build");
+    exec("tsc --project " + dir);
+    exec("browserify " + dir + "/build/index.js --outfile " + dir + "/build/app.js --debug");
   }
 );

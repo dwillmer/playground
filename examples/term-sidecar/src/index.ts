@@ -7,8 +7,10 @@
 |----------------------------------------------------------------------------*/
 
  import BoxPanel = phosphor.widgets.BoxPanel;
- import * as playground from "../../lib/index";
- import {TerminalWidget} from 'phosphor-terminal';
+
+ import * as playground from "../../../lib/index";
+
+ import { TerminalWidget } from 'phosphor-terminal';
 
 
 function main(): void {
