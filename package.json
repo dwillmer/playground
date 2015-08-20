@@ -31,7 +31,6 @@
     "clean" : "rimraf lib && rimraf dist && rimraf ./examples/**/build && rimraf ./shelljs_*",
     "build:src" : "tsc --project src",
     "build:dts" : "node scripts/dtsbundle.js",
-    "build:css": "node scripts/buildcss.js",
     "build:examples": "node scripts/buildexamples.js",
     "build" : "npm run build:src && npm run build:dts && npm run build:examples",
     "docs": "typedoc --options scripts/tdoptions.json",
