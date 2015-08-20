@@ -12,11 +12,8 @@
   "files": [
     "../../node_modules/phosphor-terminal/lib/phosphor-terminal.d.ts",
     "../../node_modules/phosphor-terminal/typings/term.js.d.ts",
-    "../../typings/phosphor/phosphor.d.ts",
-    "../../typings/codemirror/codemirror.d.ts",
+    "../../node_modules/phosphor/dist/phosphor.d.ts",
     "../../typings/es6-promise/es6-promise.d.ts",
-    "../../typings/expect.js/expect.js.d.ts",
-    "../../typings/mocha/mocha.d.ts",
     "../../lib/index.d.ts",
     "src/index.ts"
   ]
