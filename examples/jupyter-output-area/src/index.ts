@@ -18,6 +18,7 @@ class OutputAreaWidget extends Widget {
 		super();
 
 		this._output_view = new oa.OutputView(model, document);
+		document.querySelector('body').appendChild(this._output_view.el);
 	}
 
 } // class OutputAreaWidget
