@@ -3,6 +3,7 @@ Phosphor Playground
 
 Phosphor UI Playground
 
+[API Docs](http://phosphorjs.github.io/playground/)
 
 Source Build
 ------------
