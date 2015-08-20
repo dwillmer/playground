@@ -10,13 +10,8 @@ import IMessage = phosphor.core.IMessage;
 import Widget = phosphor.widgets.Widget;
 import Size = phosphor.utility.Size;
 
-
-declare function marked(data: string): string;
-
-declare module katex {
-  function renderToString(data: string): string;
-}
-
+import katex = require('katex');
+import marked = require('marked');
 
 export
 class SidecarWidget extends Widget {
