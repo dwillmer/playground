@@ -8,6 +8,4 @@
 'use strict';
 
 import {SidecarWidget} from "./sidecar";
-import {TermWidget} from "./terminal";
 export * from "./sidecar";
-export * from "./terminal";
