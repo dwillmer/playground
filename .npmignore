@@ -2,5 +2,6 @@
 *.user
 .DS_Store
 node_modules
+examples/*/build
 docs
 npm-debug.log
