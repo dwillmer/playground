@@ -1,10 +1,8 @@
 *.suo
 *.user
 .DS_Store
-build
 node_modules
-bower_components
-dist
+docs
 npm-debug.log
 lib
 shelljs_*
