@@ -1,6 +1,10 @@
-#!/usr/bin/env python2
-from SimpleHTTPServer import SimpleHTTPRequestHandler
-import BaseHTTPServer
+try:
+    from http.server import SimpleHTTPRequestHandler
+    import http.server as BaseHTTPServer
+except ImportError:
+    from SimpleHTTPServer import SimpleHTTPRequestHandler
+    import BaseHTTPServer
+
 
 class CORSRequestHandler( SimpleHTTPRequestHandler ):
     def end_headers( self ):
