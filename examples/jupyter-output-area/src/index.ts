@@ -48,7 +48,6 @@ function main(): void {
 	var model = new oa.OutputModel();
 	var output_area = new OutputAreaWidget( model, document );
 
-	//'https://github.com/jupyter/jupyter-js-output-area/blob/master/demo/data/data.json'
 	fetchJSONFile('http://localhost:8000/data.json').then(function(messages: any[]) {
 		for (var i = 0; i < messages.length; i++) {
 			model.consumeMessage(<JSON>(messages[i]));

@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "phosphor": "^0.4.0",
-    "phosphor-terminal": "^0.2.2",
     "jupyter-js-output-area": "^0.0.3",
     "phosphor-terminal": "git://github.com/phosphorjs/phosphor-terminal.git#51a45bc1405bf448cbbfe9a544a5857b65ae22be"
   },
