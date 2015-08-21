@@ -9,7 +9,8 @@
   "dependencies": {
     "phosphor": "^0.4.0",
     "phosphor-terminal": "^0.2.2",
-    "jupyter-js-output-area": "^0.0.3"
+    "jupyter-js-output-area": "^0.0.3",
+    "phosphor-terminal": "git://github.com/phosphorjs/phosphor-terminal.git#51a45bc1405bf448cbbfe9a544a5857b65ae22be"
   },
   "devDependencies": {
     "browserify": "^11.0.1",
@@ -31,10 +32,11 @@
   },
   "scripts": {
     "clean" : "rimraf lib && rimraf dist && rimraf ./examples/**/build && rimraf ./shelljs_*",
+    "build:term": "cd node_modules/phosphor-terminal && npm install",
     "build:src" : "tsc --project src",
     "build:dts" : "node scripts/dtsbundle.js",
     "build:examples": "node scripts/buildexamples.js",
-    "build" : "npm run build:src && npm run build:dts && npm run build:examples",
+    "build" : "npm run build:term && npm run build:src && npm run build:dts && npm run build:examples",
     "docs": "typedoc --options scripts/tdoptions.json",
     "docs:publish": "bash ./scripts/travis_after_success.sh",
     "prepublish" : "npm run build"
