@@ -23,6 +23,23 @@ class OutputAreaWidget extends Widget {
 
 } // class OutputAreaWidget
 
+function fetchJSONFile(path: string) {
+  return new Promise(function(resolve, reject) {
+		var httpRequest = new XMLHttpRequest();
+		httpRequest.onreadystatechange = function() {
+			if (httpRequest.readyState === 4) {
+				if (httpRequest.status === 200) {
+					resolve(JSON.parse(httpRequest.responseText));
+				} else {
+					reject(Error('httpRequest.status === ' + httpRequest.status));
+				}
+			}
+		};
+		httpRequest.open('GET', path, true);
+		httpRequest.send();
+  });
+}
+
 
 function main(): void {
 
@@ -30,6 +47,16 @@ function main(): void {
 
 	var model = new oa.OutputModel();
 	var output_area = new OutputAreaWidget( model, document );
+
+	//'https://github.com/jupyter/jupyter-js-output-area/blob/master/demo/data/data.json'
+	fetchJSONFile('http://localhost:8000/data.json').then(function(messages: any[]) {
+		for (var i = 0; i < messages.length; i++) {
+			model.consumeMessage(<JSON>(messages[i]));
+		}
+	}).catch(function(err) {
+		console.error('Could not load sample data: ', err);
+	});
+
 	panel.addWidget(output_area, 1);
 
 	panel.attach(document.getElementById('main'));
