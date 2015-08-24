@@ -12,16 +12,17 @@ import BoxPanel = phosphor.widgets.BoxPanel;
 
 
 class OutputAreaWidget extends Widget {
-  private _output_view: oa.OutputView;
+  private _outputView: oa.OutputView;
 
   constructor( model: oa.OutputModel, document: any ) {
     super();
 
-    this._output_view = new oa.OutputView(model, document);
-    document.querySelector('body').appendChild(this._output_view.el);
+    this._outputView = new oa.OutputView(model, document);
+    document.querySelector('body').appendChild(this._outputView.el);
   }
 
 } // class OutputAreaWidget
+
 
 function fetchJSONFile(path: string) {
   return new Promise(function(resolve, reject) {
@@ -42,11 +43,9 @@ function fetchJSONFile(path: string) {
 
 
 function main(): void {
-
   var panel = new BoxPanel();
-
   var model = new oa.OutputModel();
-  var output_area = new OutputAreaWidget( model, document );
+  var outputArea = new OutputAreaWidget( model, document );
 
   fetchJSONFile('http://localhost:8000/data.json').then(function(messages: any[]) {
     for (var i = 0; i < messages.length; i++) {
@@ -56,8 +55,7 @@ function main(): void {
     console.error('Could not load sample data: ', err);
   });
 
-  panel.addWidget(output_area, 1);
-
+  panel.addWidget(outputArea, 1);
   panel.attach(document.getElementById('main'));
   panel.fit();
 
